@@ -184,6 +184,6 @@ for(i in 1:length(dat)){
 }
 
 # Save the worksheet #### 
-saveWorkbook(wb, "example_report.xlsx", overwrite = TRUE)
+saveWorkbook(wb, "output/example_report.xlsx", overwrite = TRUE)
 #saveWorkbook(wb, "example_report_2.xlsx", overwrite = TRUE) # use this to save another for examples 
 
