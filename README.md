@@ -1,22 +1,16 @@
 
 # Parameterized Excel reports 
 
-The goal of this repo is simple: to generate reproducible reports with Excel to be sent to clients and stakeholders.   
+## Introduction
 
-This repo was inspired by [Parameterized reporting](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) in RMarkdown. Many companies/clients require an Excel spreadsheet, 
+This repo demonstrates how to generate an Excel report using randomly generated data/column names/branch location names. The data used in this script is randomly generated and does not represent any real financial data. It is intended to demonstrate how to manipulate data in R and create an Excel report. This repo was inspired by [Parameterized reporting](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) in RMarkdown.
 
-**NOTE:** The data was randomly generated with the `runif` function. The template was inspired by the cash flow statement excel template from [ExcelDataPro](https://exceldatapro.com/cash-flow-statement/). The branch names were randomly generated (slightly modified) by [Fantasy Name Generators](https://www.fantasynamegenerators.com/). This is just an example of how to generate excel spreadsheet reports these numbers are not reflective of anything else! 
+## Installation
 
-As well, this example requires the data to be tidy. In a similar task, I queried and cleaned the data before putting it in this script. 
-
-## Requirements
-
- The code was written with R version 4.2.1. The Excel template and output was created on Version 2212. Lastly, the package `openxlsx` was used to write and edit the Excel worksheets. You can install via cran:
+To run this script, you will need to have R installed on your computer along with the required packages openxlsx and dplyr. You can install the required packages using the following code:
  
  ```
  install.packages("openxlsx")
+ install.packages("dplyr")
  ```
 
-## How to generate multiple worksheets 
-
-* Read in and join all the data sources. 
