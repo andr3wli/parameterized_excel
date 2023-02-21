@@ -64,78 +64,33 @@ for(i in 1:length(dat)) {
   }
 }
 
-# Measures - items in table that is 4 across - turn this into function when have more time ####
-for(i in 1:length(dat)){ 
-  item <- dat[[i]]$client_payment # clients and customer
+# Measures - items in table that is 4 across ####
+write_items <- function(data, worksheets) {
+  items <- list(
+    client_payment = 5,
+    other_payment = 6,
+    inventory = 9,
+    salary = 10,
+    income_tax = 11,
+    general = 12)
   
-  for(k in 1:length(item)) {
-    writeData(wb,
-              sheet = worksheets[i],
-              x = item[k],
-              startCol = k + 2,
-              startRow = 5)
+  for (i in seq_along(data)) {
+    for (name in names(items)) {
+      item <- data[[i]][[name]]
+      for (k in seq_along(item)) {
+        writeData(
+          wb,
+          sheet = worksheets[[i]],
+          x = item[[k]],
+          startCol = k + 2,
+          startRow = items[[name]])
+      }
+    }
   }
 }
 
-for(i in 1:length(dat)){ 
-  item <- dat[[i]]$other_payment # other misc operations 
-  
-  for(k in 1:length(item)) {
-    writeData(wb,
-              sheet = worksheets[i],
-              x = item[k],
-              startCol = k + 2,
-              startRow = 6)
-  }
-}
+write_items(dat, worksheets)
 
-for(i in 1:length(dat)){ 
-  item <- dat[[i]]$inventory # purchase of inventory 
-  
-  for(k in 1:length(item)) {
-    writeData(wb,
-              sheet = worksheets[i],
-              x = item[k],
-              startCol = k + 2,
-              startRow = 9)
-  }
-}
-
-for(i in 1:length(dat)){ 
-  item <- dat[[i]]$salary # salary/wages
-  
-  for(k in 1:length(item)) {
-    writeData(wb,
-              sheet = worksheets[i],
-              x = item[k],
-              startCol = k + 2,
-              startRow = 10)
-  }
-}
-
-for(i in 1:length(dat)){ 
-  item <- dat[[i]]$income_tax # income tax
-  
-  for(k in 1:length(item)) {
-    writeData(wb,
-              sheet = worksheets[i],
-              x = item[k],
-              startCol = k + 2,
-              startRow = 11)
-  }
-}
-
-for(i in 1:length(dat)){ 
-  item <- dat[[i]]$general # general and administrative expenses
-  
-  for(k in 1:length(item)) {
-    writeData(wb,
-              sheet = worksheets[i],
-              x = item[k],
-              startCol = k + 2,
-              startRow = 12)
-  }
-}
 # Get the sum for each measure (sum for each row) ####
 for(i in 1:length(dat)){ 
   for(row in 1:14) {
@@ -185,5 +140,5 @@ for(i in 1:length(dat)){
 
 # Save the worksheet #### 
 saveWorkbook(wb, "output/example_report.xlsx", overwrite = TRUE)
-#saveWorkbook(wb, "example_report_2.xlsx", overwrite = TRUE) # use this to save another for examples 
+# saveWorkbook(wb, "output/example_report_2.xlsx", overwrite = TRUE) # use this to save another for examples 
 
