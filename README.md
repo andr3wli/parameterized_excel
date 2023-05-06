@@ -20,14 +20,14 @@ To run this script, you will need to have R installed on your computer along wit
 
 `generate_excel_report.R` demonstrates how to create an Excel workbook from a template. This can be useful when the report requires a lot of customization before it can be client-ready. `template.xlsx` contains a blank table and cells with customization/formulas. Using a template allows you to create more elaborate and complex contents and formats with no additional code. 
 
-<img src="img/template_before.PNG"  width="250" />
+<img src="img/template_before.PNG"  width="750" />
 
 <br>
 
-<img src="img/template_after.PNG" width="250" />
+<img src="img/template_after.PNG" width="750" />
 
 ## Without a template
 
 `no_template_report.R` demonstrates how to create an Excel workbook from the ground up. All the content and style seen in the final product needs to be added in the R file. 
 
-<img src="img/no_template.PNG" width="250" />
+<img src="img/no_template.PNG" width="750" />
